@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>ntasoGameOnline</title>
+    <style>
+      #canvas-2d {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        object-fit: contain;
+        background-color: rgb(224, 224, 128);
+        cursor: crosshair;
+      }
+
+      #start-screen {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        z-index: 10;
+        background-color: rgba(128, 128, 128, 0.5);
+      }
+    </style>
+  </head>
+  <body
+    style="
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    "
+  >
+    <div>ntasoGameOnline</div>
+    <div style="flex: 1 1; position: relative; overflow: hidden;">
+      <div id="start-screen">
+        <div style="text-align: center; width: 100%; font-size: xx-large;">
+          <input
+            type="text"
+            name="nickname"
+            id="nickname"
+            placeholder="Your nickname"
+            autofocus
+          /><br /><br />
+          <button style="font-size: xx-large;" id="start-button">Start</button>
+        </div>
+      </div>
+      <canvas id="canvas-2d"></canvas>
+    </div>
+
+    <div>
+      <h3>ルール説明</h3>
+      <ul>
+        <li>アイテムを取るとあなたのタイプが変わります</li>
+        <li>
+          草タイプは水タイプ、水タイプは炎タイプ、炎タイプは草タイプに有利です
+        </li>
+        <li>有利なタイプの相手にぶつかると相手を倒せます</li>
+        <li>より多くの敵を倒した人の勝利です</li>
+      </ul>
+      <p>※同じNNでリスポーンすると成績はリセットされます</p>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Settings -->
+    <script src="./js/SharedSettings.js"></script>
+    <script src="./js/RenderingSettings.js"></script>
+    <!-- Custom -->
+    <script src="./js/Assets.js"></script>
+    <script src="./js/Screen.js"></script>
+    <script src="./js/client.js"></script>
+  </body>
+</html>
